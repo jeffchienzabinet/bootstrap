@@ -324,6 +324,8 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.transition'])
             angular.forEach(resolves, function (value) {
               if (angular.isFunction(value) || angular.isArray(value)) {
                 promisesArr.push($q.when($injector.invoke(value)));
+              } else {
+                promisesArr.push(value);
               }
             });
             return promisesArr;
